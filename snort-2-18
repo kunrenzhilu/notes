@@ -1,0 +1,5 @@
+how to synchronize between team works? If one havnt update but edit before hand?
+
+Git repo corresponds to a specific directory. Per commit will sychronize the whole repo into the git cloud repo.
+
+
