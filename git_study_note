@@ -10,4 +10,10 @@ git remote add create a remote git repo, e.g. the githup repo, and then register
 
 git push [name] [branch] finish the sychonization between local and remote repo
 
+Scene 1. I "mv snort-2-18 git_study_note". Then I "git add git_study_note", however, I didn't add the "snort-2-18". This lead to afterwards when I "git status", it shows 	
+	
+	deleted:    snort-2-18
+
+And at this point, I "git push -u name git". Then I go and check from web, it showed both snort-2-18 and git_study_note exist. The reason is I didnt add the the change of snort-2-18 to commit. 
+
 
