@@ -1,0 +1,13 @@
+how to synchronize between team works? If one havnt update but edit before hand?
+
+Git repo corresponds to a specific directory. Per commit will sychronize the whole repo into the git cloud repo.
+
+git "add" index/register the file to git commit
+
+git commit claims that a bunch of update has been committed, is okey for upstream pushing to the remote repo. \br however, it's not yet update to the remote repo
+
+git remote add create a remote git repo, e.g. the githup repo, and then register the name of that remote repo locally. 
+
+git push [name] [branch] finish the sychonization between local and remote repo
+
+
