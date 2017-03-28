@@ -1,0 +1,25 @@
+It sounds like a NAT is talking about the gateway. For Nat, the gateway remember the tranlation table. However, for port forwarding, it just forward whatever traffic to the port, while neglecting the source.
+
+Q: how do the traffic get initiated for the NAT case?  If the gateway allows any traffic to the port, then is it the same as the port forwarding?
+
+!!! THE differences lie in the fact that for NAT case, the inner host request the traffic first. Since the table has been established on the gateway side, then the gateway allows the peers from outside to get into the NAT. 
+
+##Iptables redirecting traffic trick & understanding###
+
+The Iptbale works in the kernal space, which can handle multiple ports for a time. Therefore, it's not correct to think of the model that the iptables tool nest in one network/nic at a time. This is important clarification.
+	Moreover, the iptables configure rules according to TABLEs and CHAINs. For NAT task, one relies on the "nat" table, while in the redirection task, one relies on the "mangle" table. 
+	I use the following script the handle traffic mirroring/redirecting.
+
+	sudo iptables -t mangle -A POSTROUTING -o wlan0 -d 192.168.42.0/24 -j TEE --gateway 192.168.1.101
+
+	iptables -t mangle -A PREROUTING -i wlan0 -s 192.168.42.0/24 -j TEE --gateway 192.168.1.101
+
+	To explain a bit, -t specify the table, -A says append in to the chain, or one can use -I to insert or use -D to delete a specified rule; -o says output interface, -j says using TEE extension, --gateway tells the destination of the traffic being redirected, and the gateway can be either on WAN or on LAN. 
+	The more important understanding is the differentce between chain PREROUTING and PROROUTING. The point is PREROUTING process packages BEFORE routing rules applys, while POSTROUTING AFTER. Then suppose there's a package coming from WAN to the box, and now need to go through the nat to be routed to the LAN (i.e. 192.168.42/24). Also, suppose the packege has been DNAT, then there exists a routing rule, says 192.168.42.1 -> 192.168.42.101. If we want to redirect this traffic, then we should use POSTROUTING, to track the destination within 192.168.42/0, then no matter how the DNAT or SNAT change the ips, we are still able to capture the package going to the LAN. Vice Varsa, if we want to capture every thing coming from LAN to WAN, we use the PREROUTING and to track packges sources with LAN (we cannot use POSTROUTING in this case since the 'nat' table has change the source).
+	However, the arguement -i and -o could be redundent, since as long as the PRE/POSTROUTING has been specified, and more importantly, the interface has been specified, it automatically covers the whole LAN. But of course, the -s and -d can be use for more fine grained control. 
+
+References: 
+#How to edit iptabels https://fedoraproject.org/wiki/How_to_edit_iptables_rules
+#Understanding chains http://gaodi2002.blog.163.com/blog/static/2320768200702115132683/
+					  http://www.linuxquestions.org/questions/linux-security-4/prerouting-and-postrouting-887333/
+#Using TEE https://superuser.com/questions/753294/mirror-port-via-iptables

@@ -1,0 +1,45 @@
+#
+ALL SETTING SOURCE FROM THE FOLLOWING PAGE 
+# http://sublimerobots.com/2017/01/snort-2-9-9-x-ubuntu-installing-barnyard2/
+
+In the examples below, we have chose to use MYSQLROOTPASSWORD as the MySQL root password, and MYSQLSNORTID 
+
+CREATE USER 'snort'@'localhost' IDENTIFIED BY 'MYSQLSNORTID';
+
+
+# For some unknown reason, the snort alert works for a while and never work again
+
+27-02-2017 UPDATE
+The immediate name server is usually the local gateway. For example, when my computer is connecting to the ambient network, by cat /etc/resolv.conf (using nmcli device show wlan0 within Ubuntu), it shows the name server is 192.168.1.1, which is the router's ip address.
+
+For a bridge, the ipaddr of the router should be the ip address as it becomes the gateway of the subnet. For example, when the internet is 10.10.1.0/24, where the inner LAN is 192.168.2.0/24, when trying to share the network from eth0 (internet) and the home wireless network with wlx00f140420310 (homeLAN), the address of the bridge should be 192.168.2.1/24
+
+[SHORTCUT]
+To configure the network interface, the address is /etc/network/interfaces
+To restart the network manager, the address is /etc/init.d/network-manager, or using service NetworkManager restart
+
+HOWTO WIFI MASTER MODE {https://help.ubuntu.com/community/WifiDocs/MasterMode}: When selecting a PCI adapter, cards based on Atheros chipsets tend to be compatible: http://madwifi.org/
+
+## insert iptables rules during boot
+#####The following lines are added, please remember this shit#####
+iptables-restore < /etc/iptables/rules.v4
+
+## for original detector setting, snort wont work for inline mode, for which will exist with memory exceeding. Then, following the link below, by setting the detector method to be lowmem, it become barely affordable for running in the raspberry pi
+http://www.instructables.com/id/Raspberry-Pi-Firewall-and-Intrusion-Detection-Syst/?ALLSTEPS
+
+##When deploying the -D to enable the daemon mode for snort, I encountered the error, which is Spawning daemon child...\fork: Cannot allocate memory, reason is given from the above link, which is the swap size not enough, the the solution is also following the above link tutorial. I allocated 256M for the swap. and follow the below link to make the swapfile perminent. 
+
+https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04
+
+## The snort inline mode is supported even though the /etc/network/interfaces is configuring with specific ip address for the nics. Such that, iptables can be configured to be nat and then support network traffic transferring.
+
+## Since snort is running as inline mode, it's able to capture package before/after network address transferring. It means, a ping package from 192.168.42.14 to google.com, the snort can capture both 
+before nat
+192.168.42.14->google.com 
+after nat
+192.168.1.100->google.com
+## currently, the local.rules is configured to be 
+drop ip $HOME_NET any -> $NUS_NET any (msg:"BLOCKING ANY IP TRAFFIC FROM HOMENET TO NUSNET";         GID:1; sid:10000005; rev:001; classtype:trojan-activity;)
+
+##After applying the rule, as expected, the ping from LAN -> NUSNET was reported as destination unreachable, and theoratically there should be no traffic reaching NUS_NET, however, as experimented, a few (or actually all) must bypass the rule and results in that the snort sense the icmp return from the machine that is pinged. $THEN THIS IS THE FACT THAT SHOULD BE EXAMINED$
+##With network traffic mirring to the Ubuntu, and using wireshark here, it showed there are a few report from NUS_NET, which is less than the ping request sented. But, this might due to the fact that there are a small portion of packages get across, or, because the heavy thoughput of the RPi, not all traffic are redirected to the Ubuntu machine.

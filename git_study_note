@@ -8,7 +8,7 @@ git commit claims that a bunch of update has been committed, is okey for upstrea
 
 git remote add create a remote git repo, e.g. the githup repo, and then register the name of that remote repo locally. 
 
-git push [name] [branch] finish the sychonization between local and remote repo
+git push [remote-aliasname] [branch] finish the sychonization between local and remote repo
 
 Scene 1. I "mv snort-2-18 git_study_note". Then I "git add git_study_note", however, I didn't add the "snort-2-18". This lead to afterwards when I "git status", it shows 	
 	

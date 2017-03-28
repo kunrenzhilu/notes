@@ -1,0 +1,35 @@
+#HOSTAPD 
+#checking who is connecting to me
+sudo hostapd_cli all_sta
+
+###The LIFX now works for CHANNEL 1, WPA 2
+
+## Detect wifi channels
+sudo iwlist wlp4s0 scan | grep Frequency | sort | uniq -c | sort -n
+
+## nc is a useful tool for conducting network testing
+
+## Use bmon to monitor the network traffic
+
+## Use the following command line to read from file to tcpdump command
+## sudo nohup tcpdump $(cat easyfilter)
+## Note, the file path following the -w must be a full path, which means that neither $HOME nor ~ could be recognized by the tcpdump. Also, should not use tcpdump "$(cat easyfiler)", in which case tcpdump will recognize the every args following -i as the interface name, for unknown reason
+
+## location of interface.d and interface
+/etc/network/interface
+
+### The following describes daemon and service
+
+## location of the system.d or .service file
+/lib/systemd/system or /etc/systemd/system
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+
+## usable list for service 
+systemctl list-units
+
+## another way of checking service, which should return the identical result
+service snort status
+
+###How to start hostapd
+/usr/sbin/hostapd -B -P /run/hostapd.pid /etc/hostapd/hostapd.conf
+
