@@ -43,3 +43,12 @@ drop ip $HOME_NET any -> $NUS_NET any (msg:"BLOCKING ANY IP TRAFFIC FROM HOMENET
 
 ##After applying the rule, as expected, the ping from LAN -> NUSNET was reported as destination unreachable, and theoratically there should be no traffic reaching NUS_NET, however, as experimented, a few (or actually all) must bypass the rule and results in that the snort sense the icmp return from the machine that is pinged. $THEN THIS IS THE FACT THAT SHOULD BE EXAMINED$
 ##With network traffic mirring to the Ubuntu, and using wireshark here, it showed there are a few report from NUS_NET, which is less than the ping request sented. But, this might due to the fact that there are a small portion of packages get across, or, because the heavy thoughput of the RPi, not all traffic are redirected to the Ubuntu machine.
+##OK, the fact seems to be that the RPi cannot handle all traffic, then it capture all but some are leaked
+
+## Follow the below reference to secure the Rpi
+https://www.madirish.net/566
+## with passphrase provided by lab board
+## in the future, can follow the https://wiki.debian.org/UnattendedUpgrades to automate security updates
+
+## Run snort as inline
+sudo snort -c /etc/snort/snort.conf -Q -i eth0:wlan0

@@ -30,6 +30,32 @@ systemctl list-units
 ## another way of checking service, which should return the identical result
 service snort status
 
-###How to start hostapd
+###How to start hostapd, we can use the /run/hostapd.pid file to find the pid of the process so as to kill it
 /usr/sbin/hostapd -B -P /run/hostapd.pid /etc/hostapd/hostapd.conf
+#or the following
+sudo hostapd -dd /etc/hostapd/hostapd.conf
 
+##Backup with rsync
+sudo rsync -aHv --exclude-from /home/kun/Rpi_Bak/ersync-exculde.txt --rsh="ssh" kun@192.168.1.100:/ ~/Rpi_Bak/bak
+
+##Store Iptables
+sudo sh -c "iptables-save > /etc/iptables/rules.v4"
+
+##Crontab
+sudo crontab -e 
+
+##change my mac address
+
+    /etc/init.d/networking stop
+    ifconfig eth0 hw ether 02:01:02:03:04:08
+    /etc/init.d/networking start 
+
+## dictionary StarDict Console Version
+dict word or
+sdcv word
+
+## dmesg is the tool to log boot information before the syslog daemon is setup in the kernal buffer ring, such that all information can be read.
+## GRUB2 is a boot instruction program such that to control which os, and how that os be booted after reading MBR. I used the dmesg to track how the network interfaces being renamed and the use th GRUB to configure the network interface to be no-renamed. can be seen from /etc/default/grub. Following the link
+http://www.itzgeek.com/how-tos/mini-howtos/change-default-network-name-ens33-to-old-eth0-on-ubuntu-16-04.html
+## However, this only solv for the pci device, not for a usb device. Then I follow the following link to disable the network rename rules.
+https://askubuntu.com/questions/826325/how-to-revert-usb-wifi-interface-name-from-wlxxxxxxxxxxxxx-to-wlanx

@@ -1,0 +1,18 @@
+Rpi b8:27:eb:57:91:a4
+public ip MAC: c0:4a:00:b4:4e:d7
+
+NESTCAM 18:b4:30:5b:95:bb ~ 192.168.42.17
+## nestcam tcp $ip:49818 -> 54.145.249.124:443 TLS1 ## Turns out to change port every time
+
+WeMo 14:91:82:24:6d:1d ~ 192.168.42.16
+## UPNP Discovery as a control point to discover other upnp devices: port 3075->239.255.255.250:1900, SSDP search
+## port 49153: upnp port as host point
+## multiple port->54.91.115.95:3478 STUN request
+
+SAMSUNGA8 80:4e:81:a4:5f:ef ~ 192.168.42.12
+
+MACPRO a0:99:9b:14:0d:cf ~ 192.168.42.15
+
+Rpi eth0 b8:27:eb:57:91:a4 ~ 192.168.1.100
+
+

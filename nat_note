@@ -23,3 +23,77 @@ References:
 #Understanding chains http://gaodi2002.blog.163.com/blog/static/2320768200702115132683/
 					  http://www.linuxquestions.org/questions/linux-security-4/prerouting-and-postrouting-887333/
 #Using TEE https://superuser.com/questions/753294/mirror-port-via-iptables
+
+			
+	
+			## The secret of writing iptables rules ##
+
+iptables originally consists 5 tables, where they work independently [iptabels(8)], which are as follows: filter, nat, mangle, raw, security. They have different predefined target. But actually I suspect this is just for better organization, where there's no very strict requirement that certain rules should be under certain tables.
+
+iptables works by traversing the sequence of the chains. (A example can be seen by searching "nat iptables" in google image). To design a iptables rule, one should follow the sequence below:
+1) Decide which table with -t, where default for filter. For NAT or port forwarding(which is basically a NAT operation as well), use nat table.
+2) Decide the position of the traverse link, the current usecase of mine concerns POSTROUTING and PREROUTING for nat application.
+3) Decide the options for the chain (what do you want to manipulate the chain). For example, -A for append, -D for delete -L for list. 
+4) Decide the parameter of specification (or match with -m) for the rule. For example, the filter can be -p for protocal, -s for source, -d for destination, -m for match for extension modules (for example -t tcp -m --dport, talk a bit more later), -j for TARGET (talk more later), -i --in-interface, -o --out-interface. Lots of the above parameter support reverse operation with [!].
+5) Optional parameter with -v --verbose and -n --numberic. 
+
+After specifying all 5 steps, a rule is defined and can be applied by iptables. To save iptables, use iptables-save > [file-name] to save the currently configured rule set to the file, the conventional address is /etc/iptables/rules.v4. Then, to apply all rules after reboot, one add iptables-restore < [file] to /etc/rc.local, which is used by /etc/init.d when boot. 
+
+To make iptables work immediately, use
+sudo service iptables restart
+
+## Talk more details ##
+1) The -j TARGET tells what to do when the specification and -m is matched. Originally support ACCEPT, REJECT, DROP, by iptables extensions, additionally support DNAT, LOG, MASQUERADE, REDIRECT, REJECT, SNAT, TEE (for mirroring)and etc. After the -j TARGET, there can be more parameters to tell more details about the target. For example, -t mangle -A PREROUTING -i eth0 -j TEE --gateway 192.168.1.100.
+2) iptables-extensions mainly extends two things, the match and the target. For the match, sometimes, the option have to followed some original specification, for example "-A INPUT -p tcp -m tcp --dport 22 -j ACCEPT", where -m tcp have to follow -p tcp. While other are not necessary, for example "iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT".
+3) Some examples
+3.1
+To allow traffic forwarding from eth0 to wlan0 such that for internet sharing, need to
+iptables -A FORWARD -i eth0 -o wlan0(or $LAN_NIC) -m state --state RELATED,ESTABLISHED,NEW -j ACCEPT
+iptables -A FORWARD -i wlan0(or $LAN_NIC) -o eth0 -j ACCEPT 
+{
+sudo echo 1 > /proc/sys/net/ipv4/ip_foward
+sudo echo 1 > /proc/sys/net/ipv4/conf/$interface/forwarding
+or sudo sysctl net.ipv4.ip_forward=1
+or sudo sysctl net.ipv4.conf.$interface.forwarding-1
+}
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+3.2 
+configure port fowarding
+
+4)understanding -j DNAT, SNAT, MASQUERADE and REDIRECT
+DNAT: used only in nat table, in the PREROUTING chain, change the destination of the packet such that the packet can reach correctly to the host in the LAN. The mapping table is remembered by iptable per se. DNAT can be followed by --to-destination $ip:$port, when $ip is the income interface, it become equivalent to REDIRECT.  
+SNAT: used only in nat table, in the POSTROUTING chain, change the source ip address of the packet to the WAN (public) ipaddress of the gateway, such that the packet can reach remote host in WAN. However, in case the gateway is allocated with a dynamic ipaddress, MASQUERADE is used.
+MASQUERADE: a special case for SNAT, when the public ipaddress is given by DHCP protocol. 
+REDIRECT: a special case for DNAT, which change the destination ip address to the input interface's ip. For example, on the gateway, eth0 is used for WAN and wlan0 is used for WLAN. Then, -j REDIRECT --to-port 80 make packet received from WAN redirect to $ip of eth0, probably different port, e.g. 80, same for WLAN. Moreover, local generated packet will be redirected to 127.0.0.1, which is the ipaddress of the localhost. Overall, the all packet will be obsoved to the sink point--the machine per se. 
+
+Reference:
+https://learn.adafruit.com/setting-up-a-raspberry-pi-as-a-wifi-access-point/install-software
+http://www.netfilter.org/documentation/HOWTO/NAT-HOWTO-6.html#ss6.2
+**http://www.cnblogs.com/JemBai/archive/2010/03/19/1416364.html
+
+
+Port forwarding
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 49153 -j DNAT --to-destination 192.168.42.16:49153
+sudo iptables -t nat -A PREROUTING -i eth0 -p udp -m udp --dport 49153 -j DNAT --to-destination 192.168.42.16:49153
+sudo iptables -A FORWARD -d 192.168.42.16/32 -p tcp -m tcp --dport 49153 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -d 192.168.42.16/32 -p udp -m udp --dport 49153 -m state --state NEW,RELATED,ESTABLISHED -j ACCEPT
+
+rate limit for each ip
+#This means to limit the outbound traffic to every ip (msk=32) up to 15. also applied for udp
+	iptables -A OUTPUT -p tcp --syn -m connlimit --connlimit-above 15 --connlimit-mask 32 -j REJECT --reject-with tcp-reset
+    
+Syn-flood protection:
+    # iptables -A OUTPUT -p tcp --syn -m limit --limit 10/s -j ACCEPT
+
+Furtive port scanner
+
+    # iptables -A OUTPUT -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 10/s -j ACCEPT
+
+Ping of death:
+
+    # iptables -A OUTPUT -p icmp --icmp-type echo-request -m limit --limit 10/s -j ACCEPT
+
+reset counters everyday
+iptables -L -Z -v
+
