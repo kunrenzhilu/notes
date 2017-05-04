@@ -1,0 +1,261 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 LucidaGrande;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;\red191\green191\blue191;\red191\green191\blue191;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\vieww21320\viewh36980\viewkind0
+\deftab720
+\pard\pardeftab720\pardirnatural
+
+\f0\fs32 \cf0 Sec.1 Mirai
+\fs24 \
+\pard\pardeftab720\pardirnatural
+\cf0 These articles provides details on that attacks:\
+\pard\pardeftab720\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://nakedsecurity.sophos.com/2016/10/05/mirai-internet-of-things-malware-from-krebs-ddos-attack-goes-open-source/"}}{\fldrslt \cf0 Mirai \'93internet of things\'94 malware from Krebs DDoS attack goes open source}}\
+\pard\pardeftab720\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://resources.infosecinstitute.com/rise-iot-botnet-beyond-mirai-bot/#gref"}}{\fldrslt \cf0 The Rise of the IoT Botnet: Beyond the Mirai Bot}}\
+\
+Source code: {\field{\*\fldinst{HYPERLINK "https://github.com/jgamblin/Mirai-Source-Code/blob/master/mirai/bot/scanner.c"}}{\fldrslt https://github.com/jgamblin/Mirai-Source-Code/blob/master/mirai/bot/scanner.c}}\
+Source code Analysis: {\field{\*\fldinst{HYPERLINK "http://paper.seebug.org/142/"}}{\fldrslt http://paper.seebug.org/142/}}\
+A list of IP not scanning \
+\pard\pardeftab720\pardirnatural
+
+\fs18 \cf0 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 while (o1 == 127 || // 127.0.0.0/8 - Loopback\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 0) || // 0.0.0.0/8 - Invalid address space\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 3) || // 3.0.0.0/8 - General Electric Company\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 15 || o1 == 16) || // 15.0.0.0/7 - Hewlett-Packard Company\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 56) || // 56.0.0.0/8 - US Postal Service\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 10) || // 10.0.0.0/8 - Internal network\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 192 && o2 == 168) || // 192.168.0.0/16 - Internal network\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 172 && o2 >= 16 && o2 < 32) || // 172.16.0.0/14 - Internal network\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 100 && o2 >= 64 && o2 < 127) || // 100.64.0.0/10 - IANA NAT reserved\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 169 && o2 > 254) || // 169.254.0.0/16 - IANA NAT reserved\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 198 && o2 >= 18 && o2 < 20) || // 198.18.0.0/15 - IANA Special use\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 >= 224) || // 224.*.*.*+ - Multicast\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 (o1 == 6 || o1 == 7 || o1 == 11 || o1 == 21 || o1 == 22 || o1 == 26 || o1 == 28 || o1 == 29 || o1 == 30 || o1 == 33 || o1 == 55 || o1 == 214 || o1 == 215) // Department of Defense);\cell \lastrow\row
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+
+\fs24 \cf0 The source code is specifically for telnet, on line 116-117\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural
+
+\fs18 \cf0 // Set up TCP header\cell \lastrow\row
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+\cf0 tcph->dest = htons(23);\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+
+\fs24 \cf0 Attack vectors:\
+
+\b UDP Attacks
+\b0 \
+The bots support a few different forms of attack over the User Datagram Protocol (UDP). The source code {\field{\*\fldinst{HYPERLINK "https://github.com/rosgos/Mirai-Source-Code/blob/master/mirai/bot/attack_udp.c"}}{\fldrslt 
+\b attack_udp.c}} implements the following attacks to be carried out by an unsuspected IoT (bot) device:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	1.	}{\field{\*\fldinst{HYPERLINK "http://www.phenoelit.org/irpas/gre.html"}}{\fldrslt Generic Routing Encapsulation}} (GRE) Attack\
+{\listtext	2.	}TSource Query
+\f1 \uc0\u8202 
+\f0 \'97
+\f1 \uc0\u8202 {\field{\*\fldinst{HYPERLINK "https://www.us-cert.gov/ncas/alerts/TA14-017A"}}{\fldrslt 
+\f0 Reflective Denial of Service}}
+\f0  (bandwidth amplification)\
+{\listtext	3.	}DNS Flood via Query of type A record (map hostname to IP address)\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\sa140\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	4.	}Flooding of random bytes via plain packets\
+\pard\pardeftab720\sb120\sa120\pardirnatural
+
+\b \cf0 TCP Attacks
+\b0 \
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+\cf0 As with UDP there are several attack types supported via the Transmission Control Protocol (TCP) within {\field{\*\fldinst{HYPERLINK "https://github.com/rosgos/Mirai-Source-Code/blob/master/mirai/bot/attack_tcp.c"}}{\fldrslt 
+\b attack_tcp.c}}\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	1.	}{\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/SYN_flood"}}{\fldrslt SYN Flood}}\
+{\listtext	2.	}{\field{\*\fldinst{HYPERLINK "https://www.staminus.net/a-ddos-attack-explained-tcp-ack/"}}{\fldrslt ACK Flood}}\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl288\slmult1\sa140\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	3.	}{\field{\*\fldinst{HYPERLINK "https://www.staminus.net/a-ddos-attack-explained-psh-flood/"}}{\fldrslt PSH Flood}}\
+\pard\pardeftab720\sb120\sa120\pardirnatural
+
+\b \cf0 HTTP Attacks
+\b0 \
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+\cf0 In addition to the malformed and/or UDP or TCP packet floods, Mirai bots also support DoS over HTTP within the {\field{\*\fldinst{HYPERLINK "https://github.com/rosgos/Mirai-Source-Code/blob/master/mirai/bot/attack_app.c"}}{\fldrslt 
+\b attack_app.c}}
+\b \
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+
+\b0 \cf0 \
+One reason why Mirai is so powerful is the CNC is written in cnc, which support over 7 cpu architectures, including amd64, 386, arm arm64, ppc64&ppc64le, mips&mipsle, mips64&mips64le, s390x, where linux based system are generally running on the later 5 candidates, such that /bin/busybox is available.\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+\cf0 \
+\pard\pardeftab720\pardirnatural
+
+\fs32 \cf0 Sec.2 Analysis
+\fs24 \
+
+\b 2.1 Possible target:
+\b0 \
+DVR: {\field{\*\fldinst{HYPERLINK "http://resources.infosecinstitute.com/rise-iot-botnet-beyond-mirai-bot/#gref"}}{\fldrslt DVRs manufactured by the Chinese TVT Digital}}\
+IP camera:\
+NAS: {\field{\*\fldinst{HYPERLINK "https://nakedsecurity.sophos.com/2016/09/08/cryptomining-malware-on-nas-servers-is-one-of-them-yours/"}}{\fldrslt Seagate Central Device}}\
+DSL Modems: \
+Printers:\
+\pard\pardeftab720\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://securelist.com/blog/research/78160/hajime-the-mysterious-evolving-botnet/"}}{\fldrslt \cf0 A list of vulnerable devices}}: for example\
+\
+Portal to check devices: shodan\
+Web vulnerability scanner: punkcrawler (how does it work?)\
+\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clmrg \clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural\qc
+
+\b \cf0 http header \'93Server\'94 statistics
+\b0 \cell 
+\pard\intbl\itap1\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural\qc
+\cf0 364\cell 
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 Server: uc-httpd 1.0.0\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural\qc
+\cf0 43\cell 
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 Server: WCY_WEBServer/2.0\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural\qc
+\cf0 9\cell 
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 Server: Boa/0.94.14rc21\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural\qc
+\cf0 I4\cell 
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 Server: thttpd/2.25b-lxc 29dec2003\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\pardirnatural\qc
+\cf0 3\cell 
+\pard\intbl\itap1\pardeftab720\pardirnatural
+\cf0 Server: Router Webserver\cell \lastrow\row
+\pard\pardeftab720\pardirnatural
+\cf0 \
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+\cf0 Reason for the vulnerability of the devices:\
+1. The DVR and IP cameras are vulnerable to attacks is that lots of people try to setup static public ip in dvr, from their phone or else where for the purpose of providing monitoring service to the office/home. For example, {\field{\*\fldinst{HYPERLINK "http://www.cctvforum.com/viewtopic.php?f=12&t=45230"}}{\fldrslt this forum link}} and {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=Uy7Z7KL5JRA"}}{\fldrslt this youtube link}}. Therefore, people are all doing portforwading on their home router. \
+2. The modem are vulnerable since the ISP want to configure their devices from remote using SOAP, whereas they are still not changing the default paraphases (e.g Arrit), which is used to generate the pwd of the day, an old back door for those modem.\
+3. Hacking paper on {\field{\*\fldinst{HYPERLINK "https://www.sophos.com/en-us/medialibrary/PDFs/technical%20papers/Cryptomining-malware-on-NAS-servers.pdf?la=en"}}{\fldrslt NAS}}. Simply using FTP without password needed, is vulnerable by default of some devices, the following link is the detailed report of how it works.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f2 \cf0 {{\NeXTGraphic Pasted Graphic.tiff \width23880 \height15360
+}¬}
+\f0 \
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+
+\b \cf0 2.2 Available Tools for tracking
+\b0 \
+Vulnerable port, where respective service is given by {\field{\*\fldinst{HYPERLINK "https://support.microsoft.com/en-us/help/832017/service-overview-and-network-port-requirements-for-windows"}}{\fldrslt this page}}(Microsoft) or {\field{\*\fldinst{HYPERLINK "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.txt"}}{\fldrslt this page}}(IANA):\
+Windows Mirai: {\field{\*\fldinst{HYPERLINK "http://thehackernews.com/2017/02/mirai-iot-botnet-windows.html"}}{\fldrslt 22(ssh), 23(Telnet), 135(RPC EPM for WMI service), 445(SMB), 1433(MS SQL Server), 3306(MySQL Server) and 3389(RemoteDesktopProto)}}\
+Upgraded Mirai for IoT: {\field{\*\fldinst{HYPERLINK "https://isc.sans.edu/forums/diary/Port+7547+SOAP+Remote+Code+Execution+Attack+Against+DSL+Modems/21759/"}}{\fldrslt 7547}}(Simple Object Access Protocal), 23, and {\field{\*\fldinst{HYPERLINK "https://isc.sans.edu/port.html?port=2323"}}{\fldrslt 2323}}(3d-nfsd), 5555, {\field{\*\fldinst{HYPERLINK "https://isc.sans.org/forums/diary/UPDATED+x1+Mirai+Scanning+for+Port+6789+Looking+for+New+Victims+Now+hitting+tcp23231/21833/"}}{\fldrslt 6789/23231(Dahua)}}\
+This page can view port visiting activities on the internet:\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://isc.sans.edu/port.html?port=2323"}}{\fldrslt \cf0 https://isc.sans.edu/port.html?port=2323}}\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://scan.netlab.360.com/#/dashboard?tsbeg=1481558400000&tsend=1482163200000&dstport=6789&toplistname=srcip&topn=30&sortby=sum"}}{\fldrslt \cf0 http://scan.netlab.360.com/#/dashboard?tsbeg=1481558400000&tsend=1482163200000&dstport=6789&toplistname=srcip&topn=30&sortby=sum}}\
+This page have ddos monitoring data(most are amp flood):\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://ddosmon.net/statistic"}}{\fldrslt \cf0 https://ddosmon.net/statistic}}\
+This page has mirai scanner and logs for mirais\'92 variants\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+{\field{\*\fldinst{HYPERLINK "http://data.netlab.360.com/mirai-scanner/"}}{\fldrslt \cf0 http://data.netlab.360.com/mirai-scanner/}}\
+\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+
+\fs32 \cf0 Sec.3 Variants for Mirai
+\fs24 \
+The {\field{\*\fldinst{HYPERLINK "https://www.incapsula.com/blog/650gbps-ddos-attack-leet-botnet.html"}}{\fldrslt leet(1337) botnet}} and Amnesia botnet.\
+There is a Amnesia botnet exploits an unpatched remote code execution vulnerability that was disclosed more than one year ago. \
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+
+\i \cf0 Virtual machine evasion techniques are more commonly associated with Microsoft Windows and Google Android malware. Similar to those, Amnesia tries to detect whether it\'92s running in a VirtualBox, VMware or QEMU based virtual machine, and if it detects those environments it will wipe the virtualized Linux system by deleting all the files in the file system,\'94 continues the analysis. \'93This affects not only Linux malware analysis sandboxes but also some QEMU based Linux servers on VPS or public cloud.
+\i0 \
+There is a Brickerbot botnet aims to destroys the IoT devices/honeypots. 19K infection attempts and 333 attempts came from a Tor node. It use port 23.\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
+{\field{\*\fldinst{HYPERLINK "https://securelist.com/blog/research/78160/hajime-the-mysterious-evolving-botnet/"}}{\fldrslt \cf0 Hajime}}\
+1.TR-069 exploitation; 2.Telnet default password attack; 3.Arris cable modem password of the day attack. The ARRIS password of the day is a remote backdoor known since 200\
+TR-069 allows ISPs to manage modems remotely. TCP port 7547 has been assigned to this protocol, but some devices appear to use port 5555 instead. The kasperskylab used DHT p2p network to track to attacked devices.\
+}
