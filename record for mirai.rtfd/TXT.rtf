@@ -1,18 +1,17 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fnil\fcharset0 LucidaGrande;\f2\fswiss\fcharset0 Helvetica;
 }
-{\colortbl;\red255\green255\blue255;\red191\green191\blue191;\red191\green191\blue191;}
+{\colortbl;\red255\green255\blue255;\red191\green191\blue191;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
-\vieww21320\viewh36980\viewkind0
+\vieww21320\viewh16580\viewkind0
 \deftab720
 \pard\pardeftab720\pardirnatural
 
 \f0\fs32 \cf0 Sec.1 Mirai
 \fs24 \
-\pard\pardeftab720\pardirnatural
-\cf0 These articles provides details on that attacks:\
+These articles provides details on that attacks:\
 \pard\pardeftab720\pardirnatural
 {\field{\*\fldinst{HYPERLINK "https://nakedsecurity.sophos.com/2016/10/05/mirai-internet-of-things-malware-from-krebs-ddos-attack-goes-open-source/"}}{\fldrslt \cf0 Mirai \'93internet of things\'94 malware from Krebs DDoS attack goes open source}}\
 \pard\pardeftab720\pardirnatural
@@ -103,8 +102,9 @@ A list of IP not scanning \
 \pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
 
 \fs24 \cf0 Attack vectors:\
+\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
 
-\b UDP Attacks
+\b \cf0 UDP Attacks
 \b0 \
 The bots support a few different forms of attack over the User Datagram Protocol (UDP). The source code {\field{\*\fldinst{HYPERLINK "https://github.com/rosgos/Mirai-Source-Code/blob/master/mirai/bot/attack_udp.c"}}{\fldrslt 
 \b attack_udp.c}} implements the following attacks to be carried out by an unsuspected IoT (bot) device:\
@@ -139,18 +139,17 @@ The bots support a few different forms of attack over the User Datagram Protocol
 \cf0 In addition to the malformed and/or UDP or TCP packet floods, Mirai bots also support DoS over HTTP within the {\field{\*\fldinst{HYPERLINK "https://github.com/rosgos/Mirai-Source-Code/blob/master/mirai/bot/attack_app.c"}}{\fldrslt 
 \b attack_app.c}}
 \b \
-\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
 
-\b0 \cf0 \
+\b0 \
 One reason why Mirai is so powerful is the CNC is written in cnc, which support over 7 cpu architectures, including amd64, 386, arm arm64, ppc64&ppc64le, mips&mipsle, mips64&mips64le, s390x, where linux based system are generally running on the later 5 candidates, such that /bin/busybox is available.\
-\pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
-\cf0 \
+\
 \pard\pardeftab720\pardirnatural
 
 \fs32 \cf0 Sec.2 Analysis
 \fs24 \
+\pard\pardeftab720\pardirnatural
 
-\b 2.1 Possible target:
+\b \cf0 2.1 Possible target:
 \b0 \
 DVR: {\field{\*\fldinst{HYPERLINK "http://resources.infosecinstitute.com/rise-iot-botnet-beyond-mirai-bot/#gref"}}{\fldrslt DVRs manufactured by the Chinese TVT Digital}}\
 IP camera:\
@@ -165,8 +164,8 @@ Web vulnerability scanner: punkcrawler (how does it work?)\
 \
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clmgf \clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
-\clmrg \clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\clmgf \clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx4320
+\clmrg \clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\pardirnatural\qc
 
 \b \cf0 http header \'93Server\'94 statistics
@@ -174,40 +173,40 @@ Web vulnerability scanner: punkcrawler (how does it work?)\
 \pard\intbl\itap1\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\pardirnatural\qc
 \cf0 364\cell 
 \pard\intbl\itap1\pardeftab720\pardirnatural
 \cf0 Server: uc-httpd 1.0.0\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\pardirnatural\qc
 \cf0 43\cell 
 \pard\intbl\itap1\pardeftab720\pardirnatural
 \cf0 Server: WCY_WEBServer/2.0\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\pardirnatural\qc
 \cf0 9\cell 
 \pard\intbl\itap1\pardeftab720\pardirnatural
 \cf0 Server: Boa/0.94.14rc21\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\pardirnatural\qc
 \cf0 I4\cell 
 \pard\intbl\itap1\pardeftab720\pardirnatural
 \cf0 Server: thttpd/2.25b-lxc 29dec2003\cell \row
 
 \itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx4320
-\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadl100 \clpadr100 \gaph\cellx8640
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx4320
+\clvertalc \clshdrawnil \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\pardirnatural\qc
 \cf0 3\cell 
 \pard\intbl\itap1\pardeftab720\pardirnatural
@@ -219,11 +218,12 @@ Web vulnerability scanner: punkcrawler (how does it work?)\
 1. The DVR and IP cameras are vulnerable to attacks is that lots of people try to setup static public ip in dvr, from their phone or else where for the purpose of providing monitoring service to the office/home. For example, {\field{\*\fldinst{HYPERLINK "http://www.cctvforum.com/viewtopic.php?f=12&t=45230"}}{\fldrslt this forum link}} and {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=Uy7Z7KL5JRA"}}{\fldrslt this youtube link}}. Therefore, people are all doing portforwading on their home router. \
 2. The modem are vulnerable since the ISP want to configure their devices from remote using SOAP, whereas they are still not changing the default paraphases (e.g Arrit), which is used to generate the pwd of the day, an old back door for those modem.\
 3. Hacking paper on {\field{\*\fldinst{HYPERLINK "https://www.sophos.com/en-us/medialibrary/PDFs/technical%20papers/Cryptomining-malware-on-NAS-servers.pdf?la=en"}}{\fldrslt NAS}}. Simply using FTP without password needed, is vulnerable by default of some devices, the following link is the detailed report of how it works.\
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
 
 \f2 \cf0 {{\NeXTGraphic Pasted Graphic.tiff \width23880 \height15360
-}¬}
-\f0 \
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f0 \cf0 \
 \pard\pardeftab720\sl288\slmult1\sa140\pardirnatural
 
 \b \cf0 2.2 Available Tools for tracking
